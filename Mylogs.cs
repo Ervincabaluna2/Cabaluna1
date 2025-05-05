@@ -15,7 +15,7 @@ namespace Cabaluna
         
         public void insertLogs (string user, string message)
         {
-            book.LoadFromFile(@"C:\Users\ACT-STUDENT\Desktop\Book.xlsx");
+            book.LoadFromFile(@"C:\Users\ACT-STUDENT\Desktop\CABALUNA1\Book.xlsx");
             Worksheet sheet = book.Worksheets[1];
             int row = sheet.Rows.Length + 1;
             sheet.Range[row,1].Value = user;

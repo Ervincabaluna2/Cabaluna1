@@ -50,6 +50,8 @@ namespace Cabaluna
         private void btnLogout_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Are you sure you want to logout?" , "Logout." , MessageBoxButtons.OK , MessageBoxIcon.Information);
+            Mylogs ml = new Mylogs();
+            ml.insertLogs(lblName.Text, "Logged out.");
             Login login = new Login();
             login.Show();
             this.Hide();
@@ -58,7 +60,7 @@ namespace Cabaluna
         public int showCount(int c,string val)
         {
 
-            book.LoadFromFile(@"C:\Users\ACT-STUDENT\Desktop\Book.xlsx");
+            book.LoadFromFile(@"C:\Users\ACT-STUDENT\Desktop\CABALUNA1\Book.xlsx");
             Worksheet sheet = book.Worksheets[0];
 
             int row = sheet.Rows.Length;

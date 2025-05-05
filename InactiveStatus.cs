@@ -26,7 +26,7 @@ namespace Cabaluna
         public void LoadInactiveData()
         {
             Workbook book = new Workbook();
-            book.LoadFromFile(@"C:\Users\ACT-STUDENT\Desktop\Book.xlsx");
+            book.LoadFromFile(@"C:\Users\ACT-STUDENT\Desktop\CABALUNA1\Book.xlsx");
             Worksheet sheet = book.Worksheets[0];
             DataTable dt = sheet.ExportDataTable();
 
@@ -35,7 +35,22 @@ namespace Cabaluna
             dgvInactive.DataSource = inactiveTable;
         }
 
-       
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult Yes = MessageBox.Show("Are you sure you want to delete the selected info?", "Notice", MessageBoxButtons.YesNo);
+
+            if (Yes == DialogResult.Yes)
+            {
+                Workbook book = new Workbook();
+                book.LoadFromFile(@"C:\Users\ACT-STUDENT\Desktop\CABALUNA1\Book.xlsx");
+                Worksheet sheet = book.Worksheets[0];
+                int row = dgvInactive.CurrentCell.RowIndex + 2;
+
+                sheet.Range[row, 14].Value = "1";
+
+                book.SaveToFile(@"C:\Users\ACT-STUDENT\Desktop\CABALUNA1\Book.xlsx", ExcelVersion.Version2016);
+            }
+        }
     }
 
 
